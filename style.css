@@ -1,0 +1,285 @@
+/* ------------------------------
+   1. Colores y ajustes generales
+   ------------------------------ */
+:root {
+    --fondo: #101010;
+    --superficie: #191919;
+    --cabecera: #1b1730;
+    --acento: #bd8cff;
+    --acento-claro: #8edfff;
+    --texto: #f1efff;
+    --texto-suave: #c9c7dc;
+    --borde: #493c68;
+    --ancho: 900px;
+    --radio: 10px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: var(--fondo);
+    color: var(--texto);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.contenedor {
+    width: min(90%, var(--ancho));
+    margin-inline: auto;
+}
+
+a {
+    color: var(--acento);
+}
+
+a:focus-visible {
+    outline: 2px solid var(--acento-claro);
+    outline-offset: 4px;
+}
+
+/* ------------------------------
+   2. Cabecera y navegación
+   ------------------------------ */
+.cabecera {
+    padding: 34px 0 24px;
+    text-align: center;
+    background: radial-gradient(ellipse at top, #292044 0%, var(--cabecera) 70%);
+    border-bottom: 1px solid var(--borde);
+}
+
+.cabecera h1 {
+    margin: 0;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    line-height: 1.2;
+    letter-spacing: -1px;
+    background: linear-gradient(90deg, #e59aff, #a58bff, #78e0ff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.frase-cabecera {
+    margin: 8px 0 0;
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    background: linear-gradient(90deg, #e59aff, #a58bff, #78e0ff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.navegacion {
+    background: #141414;
+    border-bottom: 1px solid var(--borde);
+}
+
+.navegacion ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px 42px;
+    margin-block: 0;
+    padding: 10px 0;
+    list-style: none;
+}
+
+.navegacion a {
+    color: var(--texto);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.navegacion a:hover {
+    color: var(--acento);
+}
+
+/* ------------------------------
+   3. Secciones y títulos
+   ------------------------------ */
+.contenido {
+    padding-top: 22px;
+    padding-bottom: 28px;
+}
+
+.seccion {
+    margin-bottom: 28px;
+    scroll-margin-top: 18px;
+}
+
+.seccion h2 {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 0 0 14px;
+    color: var(--acento);
+    font-size: clamp(1.7rem, 4vw, 2.2rem);
+    line-height: 1.3;
+}
+
+.seccion h2::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--acento);
+}
+
+/* ------------------------------
+   4. Sección Sobre mí
+   ------------------------------ */
+.sobre-mi-contenido {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+    gap: 28px;
+}
+
+.sobre-mi-texto p {
+    margin: 0 0 18px;
+    color: var(--texto-suave);
+}
+
+.sobre-mi-texto strong,
+.experiencia strong {
+    color: var(--texto);
+}
+
+.imagen-retro {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 379 / 242;
+    object-fit: cover;
+    border: 1px solid var(--borde);
+    border-radius: var(--radio);
+}
+
+/* ------------------------------
+   5. Experiencia y aficiones
+   ------------------------------ */
+.experiencias,
+.gustos-grid {
+    display: grid;
+    gap: 12px;
+}
+
+.experiencia,
+.gusto {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    padding: 12px 16px;
+    background: linear-gradient(110deg, #191919, #151515);
+    border: 1px solid var(--borde);
+    border-radius: var(--radio);
+}
+
+.experiencia h3,
+.gusto h3 {
+    margin: 0;
+    color: var(--acento);
+    font-size: 1.1rem;
+    line-height: 1.4;
+}
+
+.experiencia p,
+.gusto p {
+    margin: 2px 0 0;
+    color: var(--texto-suave);
+    line-height: 1.5;
+}
+
+.icono {
+    flex: 0 0 48px;
+    color: var(--acento);
+    font-size: 2.2rem;
+    line-height: 1;
+    text-align: center;
+}
+
+.gustos-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.gusto {
+    gap: 16px;
+    min-height: 78px;
+}
+
+/* ------------------------------
+   6. Pie de página
+   ------------------------------ */
+.pie {
+    padding: 14px 0 24px;
+    text-align: center;
+    background: radial-gradient(ellipse at top, #292044 0%, var(--cabecera) 75%);
+    border-top: 3px solid var(--acento);
+}
+
+.pie h2 {
+    margin: 0 0 2px;
+    color: var(--acento);
+    font-size: 1.7rem;
+}
+
+.pie p {
+    margin: 2px 0;
+    color: var(--texto-suave);
+}
+
+.copyright {
+    padding-top: 12px;
+    font-size: 0.9rem;
+}
+
+.volver {
+    display: inline-block;
+    margin-top: 12px;
+}
+
+/* ------------------------------
+   7. Adaptación a móviles
+   ------------------------------ */
+@media (max-width: 650px) {
+    .sobre-mi-contenido,
+    .gustos-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .imagen-retro {
+        max-height: 280px;
+    }
+
+    .navegacion ul {
+        gap: 8px 18px;
+    }
+
+    .experiencia,
+    .gusto {
+        gap: 12px;
+        padding: 12px;
+    }
+
+    .icono {
+        flex-basis: 38px;
+        font-size: 1.8rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+    }
+}
