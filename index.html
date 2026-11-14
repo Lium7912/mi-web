@@ -11,29 +11,44 @@
     <title>Pilar Lopez Canales | Marca Personal</title>
 
     <!-- Hoja de estilos -->
-  <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Aplicar el tema guardado antes de pintar la página para evitar parpadeos. -->
+    <script>
+        try {
+            const temaGuardado = localStorage.getItem("tema");
+            if (temaGuardado === "claro") {
+                document.documentElement.dataset.tema = "claro";
+            }
+        } catch (error) {
+            // Si el almacenamiento está bloqueado, se utiliza el tema oscuro.
+        }
+    </script>
 </head>
 
 <body>
 
     <!-- ==================== CABECERA ==================== -->
-    <header id="inicio">
+    <header id="inicio" class="cabecera">
+
+        <!-- Control accesible para alternar entre los dos temas. -->
+        <button id="boton-tema" type="button" aria-label="Cambiar entre modo claro y oscuro" aria-pressed="true">☀️ Modo claro</button>
 
         <!-- Nombre y presentación principal -->
-        <div class="cabecera-contenido">
+        <div class="cabecera-contenido contenedor">
             <h1>Pilar Lopez Canales</h1>
 
-            <p>
+            <p class="frase-cabecera">
                 Estudiante de DAM · Futuro perfil en Ciberseguridad
             </p>
         </div>
 
         <!-- Menú de navegación -->
-        <nav aria-label="Navegación principal">
+        <nav class="navegacion" aria-label="Navegación principal">
             <ul>
                 <li><a href="#sobre-mi">Sobre mí</a></li>
                 <li><a href="#experiencia">Lo que he hecho</a></li>
-                <li><a href="#gustos">Me gusta</a></li>
+                <li><a href="#me-gusta">Me gusta</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
         </nav>
@@ -42,10 +57,10 @@
 
 
     <!-- ==================== CONTENIDO PRINCIPAL ==================== -->
-    <main>
+    <main class="contenido contenedor">
 
         <!-- ==================== SOBRE MÍ ==================== -->
-        <section id="sobre-mi">
+        <section id="sobre-mi" class="seccion">
 
             <h2>Sobre mí</h2>
 
@@ -65,7 +80,7 @@
 
 
         <!-- ==================== LO QUE HE HECHO ==================== -->
-        <section id="experiencia">
+        <section id="experiencia" class="seccion">
 
             <h2>Lo que he hecho</h2>
 
@@ -108,7 +123,7 @@
 
 
         <!-- ==================== MIS GUSTOS ==================== -->
-        <section id="me-gusta">
+        <section id="me-gusta" class="seccion">
     <h2>Me gusta</h2>
 
     <div class="gustos-grid">
@@ -138,7 +153,7 @@
 
 
     <!-- ==================== PIE DE PÁGINA ==================== -->
-    <footer id="contacto">
+    <footer id="contacto" class="pie">
 
         <h2>Contacto</h2>
 

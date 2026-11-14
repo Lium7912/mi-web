@@ -2,6 +2,7 @@
    1. Colores y ajustes generales
    ------------------------------ */
 :root {
+    color-scheme: dark;
     --fondo: #101010;
     --superficie: #191919;
     --cabecera: #1b1730;
@@ -12,6 +13,20 @@
     --borde: #493c68;
     --ancho: 900px;
     --radio: 10px;
+}
+
+
+/* Tema claro: se activan estos valores mediante data-tema="claro" en <html>. */
+:root[data-tema="claro"] {
+    color-scheme: light;
+    --fondo: #f5f3fa;
+    --superficie: #ffffff;
+    --cabecera: #e8def7;
+    --acento: #6740a0;
+    --acento-claro: #356a88;
+    --texto: #24202b;
+    --texto-suave: #514366;
+    --borde: #d7c9e9;
 }
 
 * {
@@ -281,5 +296,79 @@ a:focus-visible {
     *::before,
     *::after {
         transition-duration: 0.01ms !important;
+    }
+}
+
+/* ===================================================
+   Selector de tema y ajustes para el modo claro
+   =================================================== */
+
+/* Botón situado en la esquina superior derecha de la cabecera. */
+#boton-tema {
+    display: block;
+    margin: 0 20px 14px auto;
+    padding: 10px 18px;
+    background: var(--superficie);
+    color: var(--texto);
+    border: 2px solid var(--acento);
+    border-radius: 25px;
+    font: 700 14px Arial, Helvetica, sans-serif;
+    cursor: pointer;
+    transition: background-color .3s ease, color .3s ease, border-color .3s ease;
+}
+
+#boton-tema:hover {
+    background: var(--acento);
+    color: var(--fondo);
+}
+
+#boton-tema:focus-visible {
+    outline: 3px solid var(--acento-claro);
+    outline-offset: 3px;
+}
+
+/* El degradado oscuro original usa colores fijos: sustituirlo en modo claro. */
+:root[data-tema="claro"] .cabecera,
+:root[data-tema="claro"] .pie {
+    background: radial-gradient(ellipse at top, #f5edff 0%, var(--cabecera) 75%);
+}
+
+:root[data-tema="claro"] .navegacion { background: #ede5f8; }
+
+:root[data-tema="claro"] .experiencia,
+:root[data-tema="claro"] .gusto {
+    background: linear-gradient(110deg, #ffffff, #f1ebf8);
+}
+
+:root[data-tema="claro"] .cabecera h1,
+:root[data-tema="claro"] .frase-cabecera {
+    background: none;
+    color: #51317f;
+}
+
+/* Las tarjetas de formación originales son <article> sin clase. */
+#experiencia article {
+    padding: 12px 16px;
+    margin-bottom: 12px;
+    background: var(--superficie);
+    border: 1px solid var(--borde);
+    border-radius: var(--radio);
+}
+
+#experiencia article h3 { color: var(--acento); margin: 0 0 4px; }
+#experiencia article p { color: var(--texto-suave); margin: 0; }
+
+/* El texto introductorio se adapta al tema seleccionado. */
+#sobre-mi p { color: var(--texto-suave); }
+#sobre-mi strong { color: var(--texto); }
+
+/* Facilitar la transición sin animar a quienes prefieren menos movimiento. */
+body, .cabecera, .navegacion, .pie, .gusto, #experiencia article {
+    transition: background-color .3s ease, color .3s ease, border-color .3s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #boton-tema, body, .cabecera, .navegacion, .pie, .gusto, #experiencia article {
+        transition: none;
     }
 }
