@@ -49,6 +49,8 @@
                 <li><a href="#sobre-mi">Sobre mí</a></li>
                 <li><a href="#experiencia">Lo que he hecho</a></li>
                 <li><a href="#me-gusta">Me gusta</a></li>
+                <li><a href="#github">GitHub</a></li>
+                <li><a href="#ciberseguridad">Ciberseguridad</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
         </nav>
@@ -149,6 +151,41 @@
     </div>
 </section>
 
+
+        <!-- ==================== API 1: GITHUB ==================== -->
+        <section id="github" class="seccion api-seccion" aria-labelledby="titulo-github">
+            <h2 id="titulo-github">Mis proyectos de GitHub</h2>
+            <p>Explora mis repositorios públicos y las tecnologías que utilizo.</p>
+            <form id="form-github" class="api-formulario">
+                <label for="usuario-github">Usuario de GitHub</label>
+                <div class="api-controles">
+                    <input id="usuario-github" name="usuario" type="text" maxlength="39" pattern="[A-Za-z0-9](?:[A-Za-z0-9-]{0,37}[A-Za-z0-9])?" placeholder="Escribe tu usuario de GitHub" autocomplete="off" required>
+                    <button type="submit">Mostrar proyectos</button>
+                </div>
+                <small>Configura tu usuario habitual en script.js para mostrar tus proyectos automáticamente. El formulario permite probar otros usuarios.</small>
+            </form>
+            <p id="estado-github" class="api-estado" role="status" aria-live="polite">Introduce un usuario para consultar sus repositorios públicos.</p>
+            <div id="perfil-github" class="perfil-github" hidden></div>
+            <div id="lista-repositorios" class="api-grid" aria-live="polite"></div>
+        </section>
+
+        <!-- ==================== API 2: NVD ==================== -->
+        <section id="ciberseguridad" class="seccion api-seccion" aria-labelledby="titulo-nvd">
+            <h2 id="titulo-nvd">Observatorio de ciberseguridad</h2>
+            <p>Consulta vulnerabilidades CVE de la <a href="https://nvd.nist.gov/" target="_blank" rel="noopener noreferrer">National Vulnerability Database (NVD)</a>, una fuente oficial del NIST.</p>
+            <form id="form-nvd" class="api-formulario">
+                <label for="busqueda-cve">Buscar vulnerabilidades por palabra clave o identificador CVE</label>
+                <div class="api-controles">
+                    <input id="busqueda-cve" name="busqueda" type="search" minlength="3" maxlength="100" placeholder="Ej.: OpenSSL o CVE-2024-3094" required>
+                    <button type="submit">Buscar CVE</button>
+                </div>
+                <small>La búsqueda consulta la API pública de NVD. El acceso directo puede depender de las restricciones CORS y disponibilidad del servicio.</small>
+            </form>
+            <p id="estado-nvd" class="api-estado" role="status" aria-live="polite">Introduce un término para buscar vulnerabilidades.</p>
+            <div id="lista-cve" class="api-grid" aria-live="polite"></div>
+            <p class="api-aviso">Información divulgativa: consulta siempre la ficha oficial antes de tomar decisiones de seguridad.</p>
+        </section>
+
     </main>
 
 
@@ -162,8 +199,8 @@
         </p>
 
         <p>
-            <a href="mailto:tu-email@ejemplo.com">
-                tu-email@ejemplo.com
+            <a href="mailto:gilmages@hotmail.com">
+                gilmages@hotmail.com
             </a>
         </p>
 

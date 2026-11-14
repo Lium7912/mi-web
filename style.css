@@ -372,3 +372,49 @@ body, .cabecera, .navegacion, .pie, .gusto, #experiencia article {
         transition: none;
     }
 }
+
+/* =====================================================
+   8. Integraciones API: GitHub y NVD
+   Los colores utilizan las variables de ambos temas.
+   ===================================================== */
+.api-seccion { padding-top: 8px; }
+.api-seccion > p { color: var(--texto-suave); }
+.api-formulario { margin: 18px 0; }
+.api-formulario label { display: block; margin-bottom: 8px; font-weight: 700; }
+.api-formulario small { display: block; margin-top: 8px; color: var(--texto-suave); }
+.api-controles { display: flex; flex-wrap: wrap; gap: 10px; }
+.api-controles input {
+    flex: 1 1 240px; min-width: 0; padding: 12px 14px;
+    background: var(--superficie); color: var(--texto);
+    border: 1px solid var(--borde); border-radius: var(--radio);
+    font: inherit;
+}
+.api-controles button {
+    padding: 12px 18px; background: var(--acento); color: var(--fondo);
+    border: 1px solid var(--acento); border-radius: var(--radio);
+    font: inherit; font-weight: bold; cursor: pointer;
+}
+.api-controles button:hover { filter: brightness(1.12); }
+.api-controles button:disabled { opacity: .6; cursor: wait; }
+.api-controles :is(input, button):focus-visible,
+.api-tarjeta a:focus-visible { outline: 3px solid var(--acento-claro); outline-offset: 3px; }
+.api-estado { min-height: 1.6em; color: var(--texto-suave); }
+.api-estado.error { color: #f28d9a; }
+:root[data-tema="claro"] .api-estado.error { color: #a32035; }
+.api-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.api-tarjeta, .perfil-github {
+    padding: 18px; background: var(--superficie); border: 1px solid var(--borde);
+    border-radius: var(--radio); overflow-wrap: anywhere;
+}
+.api-tarjeta h3 { margin: 0 0 8px; font-size: 1.1rem; color: var(--acento); }
+.api-tarjeta p { margin: 6px 0; color: var(--texto-suave); }
+.api-tarjeta .api-meta { font-size: .9rem; }
+.api-tarjeta a { display: inline-block; margin-top: 10px; }
+.perfil-github { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; }
+.perfil-github[hidden] { display: none; }
+.perfil-github img { width: 68px; height: 68px; border-radius: 50%; }
+.perfil-github strong { display: block; }
+.api-gravedad { display: inline-block; padding: 3px 9px; border-radius: 20px;
+    background: var(--cabecera); color: var(--texto); font-weight: bold; font-size: .85rem; }
+.api-aviso { font-size: .9rem; }
+@media (max-width: 650px) { .api-grid { grid-template-columns: 1fr; } }

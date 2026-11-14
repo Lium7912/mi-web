@@ -1,0 +1,14 @@
+WEB PERSONAL - GITHUB + NVD
+
+1. Publica index.html, style.css y script.js en la misma carpeta.
+2. En script.js, cambia const USUARIO_GITHUB = ""; por tu usuario real.
+   También puedes introducir cualquier usuario público en el formulario.
+3. Para probar, usa un servidor local (por ejemplo Live Server de VS Code)
+   o publica con GitHub Pages.
+4. NVD puede bloquear solicitudes desde navegadores por CORS. En ese caso
+   se necesita un pequeño backend/proxy de confianza. No pongas claves
+   privadas en el JavaScript público.
+5. El modo oscuro/claro mantiene la preferencia en localStorage.
+
+Fuentes: https://docs.github.com/en/rest y
+https://nvd.nist.gov/developers/vulnerabilities
