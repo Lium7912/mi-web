@@ -10,6 +10,9 @@
     <!-- Título de la página -->
     <title>Pilar Lopez Canales | Marca Personal</title>
 
+    <!-- Favicon personalizado: archivo situado junto a index.html en GitHub Pages. -->
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+
     <!-- Hoja de estilos -->
     <link rel="stylesheet" href="style.css">
 
@@ -156,15 +159,8 @@
         <section id="github" class="seccion api-seccion" aria-labelledby="titulo-github">
             <h2 id="titulo-github">Mis proyectos de GitHub</h2>
             <p>Explora mis repositorios públicos y las tecnologías que utilizo.</p>
-            <form id="form-github" class="api-formulario">
-                <label for="usuario-github">Usuario de GitHub</label>
-                <div class="api-controles">
-                    <input id="usuario-github" name="usuario" type="text" maxlength="39" pattern="[A-Za-z0-9](?:[A-Za-z0-9-]{0,37}[A-Za-z0-9])?" placeholder="Escribe tu usuario de GitHub" autocomplete="off" required>
-                    <button type="submit">Mostrar proyectos</button>
-                </div>
-                <small>Configura tu usuario habitual en script.js para mostrar tus proyectos automáticamente. El formulario permite probar otros usuarios.</small>
-            </form>
-            <p id="estado-github" class="api-estado" role="status" aria-live="polite">Introduce un usuario para consultar sus repositorios públicos.</p>
+            <!-- Los repositorios del perfil Lium7912 se cargan automáticamente. -->
+            <p id="estado-github" class="api-estado" role="status" aria-live="polite">Cargando proyectos públicos de Lium7912...</p>
             <div id="perfil-github" class="perfil-github" hidden></div>
             <div id="lista-repositorios" class="api-grid" aria-live="polite"></div>
         </section>
@@ -199,8 +195,8 @@
         </p>
 
         <p>
-            <a href="mailto:gilmages@hotmail.com">
-                gilmages@hotmail.com
+            <a href="mailto:piloezcales@gmail.com">
+                piloezcales@gmail.com
             </a>
         </p>
 

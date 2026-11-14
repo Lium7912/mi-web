@@ -63,8 +63,7 @@ if (botonTema) {
    No se utilizan claves privadas en el navegador.
    ===================================================== */
 
-// PERSONALIZA AQUÍ tu usuario de GitHub. Ejemplo: "octocat".
-// Si está vacío, la web pide el nombre mediante el formulario.
+// Usuario público cuyos repositorios se muestran automáticamente (sin formulario).
 const USUARIO_GITHUB = "Lium7912";
 const API_GITHUB = "https://api.github.com";
 const API_NVD = "https://services.nvd.nist.gov/rest/json/cves/2.0";
@@ -120,8 +119,6 @@ function actualizarEstado(id, mensaje, esError = false) {
 }
 
 /* --------------------- GITHUB --------------------- */
-const formularioGitHub = document.getElementById("form-github");
-const campoGitHub = document.getElementById("usuario-github");
 const listaRepos = document.getElementById("lista-repositorios");
 const perfilGitHub = document.getElementById("perfil-github");
 
@@ -131,8 +128,6 @@ async function cargarGitHub(usuario) {
         actualizarEstado("estado-github", "Introduce un usuario de GitHub válido.", true);
         return;
     }
-    const boton = formularioGitHub.querySelector("button");
-    boton.disabled = true;
     listaRepos.replaceChildren();
     perfilGitHub.replaceChildren();
     perfilGitHub.hidden = true;
@@ -175,19 +170,11 @@ async function cargarGitHub(usuario) {
             : "Este perfil no tiene repositorios propios públicos en la primera página de resultados.");
     } catch (error) {
         actualizarEstado("estado-github", `No se pudieron cargar los proyectos: ${error.message}`, true);
-    } finally {
-        boton.disabled = false;
     }
 }
 
-formularioGitHub.addEventListener("submit", evento => {
-    evento.preventDefault();
-    cargarGitHub(campoGitHub.value.trim());
-});
-if (USUARIO_GITHUB.trim()) {
-    campoGitHub.value = USUARIO_GITHUB.trim();
-    cargarGitHub(USUARIO_GITHUB.trim());
-}
+// Cargar los repositorios al abrir la web, sin pedir datos al visitante.
+cargarGitHub(USUARIO_GITHUB);
 
 /* ----------------------- NVD ---------------------- */
 const formularioNVD = document.getElementById("form-nvd");
